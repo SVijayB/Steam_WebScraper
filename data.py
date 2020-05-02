@@ -12,3 +12,5 @@ csitems = ["AK-47","AUG","AWP","Bayonet","Bowie Knife","Butterfly Knife","Classi
             "Stiletto Knife","Survival Knife","Talon Knife","Tec-9","UMP-45","Ursus Knife","USP-S","XM1014"]
 
 quality = ["Factory New", "Minimal Wear", "Field-Tested", "Well-Worn", "Battle-Scarred"]
+
+qualfinal = [" (Factory New)"," (Minimal Wear)"," (Field-Tested)"," (Well-Worn)"," (Battle-Scarred)"]

@@ -55,11 +55,9 @@ def Result(item):
 	else:
 		print("Invalid Item. Please check Item name again.")
 
-Result(GetMarketItem("Nova | Polar Mesh" + WW))
-
-min_price = float(input("Enter the minimum price below which you want to be notified: "))
 
 def main(item):
+	min_price = float(input("Enter the minimum price below which you want to be notified: "))
 	price = float(sub(r'[^\d.]', '', item.price))
 	while(True):
 		if (price < min_price):
@@ -70,6 +68,22 @@ def main(item):
 			time.sleep(4)
 			GetMarketItem(item.name)
 
+def name():
+	for x in range(len(csitems)): 
+		print (x+1,csitems[x])
+	wep = input("Pick the number that matches the Item you are looking for : ")
+	wep = int(wep)-1
+	print("Selected Item :",csitems[wep])
+	for x in range(len(quality)): 
+		print (x+1,quality[x])
+	qual = input("Pick the Quality of skin you are looking for : ")
+	qual = int(qual)-1
+	print("Selected Quality :",quality[qual])
+	nm = input("Enter the name of the skin you are looking for(Has to match steam DataBase) : ")
+	final = csitems[wep]+" | "+nm+qualfinal[qual]
+	print(final)
+	return final
+
 if __name__ == "__main__":
-    main(GetMarketItem("Nova | Polar Mesh" + WW)) 
+	main(Result(GetMarketItem(name())))
 	
