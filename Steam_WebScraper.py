@@ -1,43 +1,52 @@
-import requests
-from bs4 import BeautifulSoup
-import smtplib
-import re
-import time
+import urllib.request
+import json 
+import urllib.error
+import enum
 
-headers = {"User Agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36'}
+FN = " (Factory New)"
+MW = " (Minimal Wear)"
+FT = " (Field-Tested)"
+WW = " (Well-Worn)"
+BS = " (Battle-Scarred)"
 
-def check_price_Steam():
-	page = requests.get(URL,headers=headers)
-	soup = BeautifulSoup(page.content, 'html.parser')
-	price = soup.find("span", class_="market_listing_price market_listing_price_with_fee")
-	price = price.text.strip()  
-	if(price=="Sold!"):
-		time.sleep(5)
-		check_price_Steam()
-	temp = re.findall(r"[-+]?\d*\.\d+|\d+", price)
-	result = 0.0
-	result = ".".join(temp).strip()
-	result = float(result)
-	print("Presently the least value of given Item is :", price.strip())
-	return result
+class MarketItem():
+  sucess = False
+  lowest_price = ""
+  median_price = ""
+  name = ""
+  volume = 0
+def GetMarketItem(name):
+  strdat = ""
+  Item = MarketItem()
+  name = name.replace(" ", "+")
+  try:
+    url = urllib.request.urlopen("http://steamcommunity.com/market/priceoverview/?appid=730&currency=3&market_hash_name=%s" %name)
+    data = json.loads(url.read().decode())
+    strdat = str(data)
+    Item.name = name.replace("+", " ")
+  except urllib.error.URLError as e:
+    print("ERROR: %s" % e.reason)
+    return MarketItem()
+  if (strdat.find("success': True") != -1):
+    Item.sucess = True
+  if (strdat.find('median_price') != -1):
+    Item.median_price = data['median_price']
+  if (strdat.find('lowest_price') != -1):
+    Item.lowest_price = data['lowest_price']
+  if (strdat.find('volume') != -1):
+    Item.volume = data['volume']
+  return Item
+def PrintMarketItem(it, volume = False):
+  if (len(it.name) > 0):
+    print(it.name + ": ")
+  if (len(it.median_price) > 0):
+    print(it.median_price)
+  elif (len(it.lowest_price) > 0):
+    print(it.lowest_price)
+  else:
+    print("No valid price found!")
+  if (volume and len(it.volume) > 0):
+    print(it.volume)
 
 
-URL = input("\nEnter the URL of the product you want to check the price of: ")
-current_price = check_price_Steam()
-print("Note : Convert given price to your currency and then enter minimum price.")
-print("Current value of item in decimals : ",current_price)
-min_price = float(input("Enter the minimum price below which you want to be notified: "))
-
-def main():
-	a = True
-	while(a==True):
-		print('Searching...')
-		time.sleep(3)
-		check_price_Steam()
-		if current_price < min_price:
-			print("We found your product at a lesser price!")
-			print("You will be saving : ", round(min_price - current_price, 2))
-			return
-
-if __name__ == "__main__":
-    main()
+PrintMarketItem(GetMarketItem("AWP | PAW" + FN), True)
