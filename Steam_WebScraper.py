@@ -12,7 +12,7 @@ def check_price_Steam():
 	price = soup.find("span", class_="market_listing_price market_listing_price_with_fee")
 	price = price.text.strip()  
 	if(price=="Sold!"):
-		time.sleep(10)
+		time.sleep(5)
 		check_price_Steam()
 	temp = re.findall(r"[-+]?\d*\.\d+|\d+", price)
 	result = 0.0
@@ -31,18 +31,13 @@ min_price = float(input("Enter the minimum price below which you want to be noti
 def main():
 	a = True
 	while(a==True):
+		print('Searching...')
+		time.sleep(3)
+		check_price_Steam()
 		if current_price < min_price:
 			print("We found your product at a lesser price!")
 			print("You will be saving : ", round(min_price - current_price, 2))
 			return
-		else:
-			print('Searching...')
-			time.sleep(5)
-			check_price_Steam()
-			if current_price < min_price:
-				print("We found your product at a lesser price!")
-				print("You will be saving : ", round(min_price - current_price, 2))
-				return
 
 if __name__ == "__main__":
     main()
