@@ -1,9 +1,3 @@
-FN = " (Factory New)"
-MW = " (Minimal Wear)"
-FT = " (Field-Tested)"
-WW = " (Well-Worn)"
-BS = " (Battle-Scarred)"
-
 csitems = ["AK-47","AUG","AWP","Bayonet","Bowie Knife","Butterfly Knife","Classic Knife","CZ75-Auto",
             "Desert Eagle","Dual Berettas","Falchion Knife","FAMAS","Five-SeveN","Flip Knife","G3SG1","Galil AR",
             "Glock-18","Gut Knife","Huntsman Knife","Karambit","M249","M4A1-S","M4A4","M9 Bayonet","MAC-10","MAG-7",
