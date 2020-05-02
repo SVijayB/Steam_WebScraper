@@ -67,7 +67,7 @@ def main(item):
 			return
 		else:
 			print('Searching...')
-			time.sleep(20)
+			time.sleep(4)
 			GetMarketItem(item.name)
 
 if __name__ == "__main__":
