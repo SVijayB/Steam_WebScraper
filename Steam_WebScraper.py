@@ -14,6 +14,7 @@ def GetMarketItem(name):
 	Item = MarketItem()
 	Item.name = name
 	temp_name = name.replace(" ", "+")
+	
 	try:
 		url = urllib.request.urlopen("http://steamcommunity.com/market/priceoverview/?appid=730&currency=1&market_hash_name=%s" %temp_name)
 		print("\nURL for reference: http://steamcommunity.com/market/priceoverview/?appid=730&currency=1&market_hash_name=%s" %temp_name)
@@ -22,21 +23,17 @@ def GetMarketItem(name):
 	except:
 		print("ERROR: UNABLE TO LOCATE ITEM")
 		return MarketItem()
+	
 	if (strdata.find("success': True") != -1):
 	    Item.sucess = True
-	else:
-	    return MarketItem()
-	if (strdata.find('lowest_price') != -1):
 	    Item.lowest_price = data['lowest_price']
-	if (strdata.find('volume') != -1):
 	    Item.volume = data['volume']
 	return Item
 
 def Result(item):
 	if (item.sucess):
 		print("\nData Collected : ")
-		if (len(item.name) > 0):
-			print(item.name + ": ")
+		print(item.name + ": ")
 		print("Lowest Price :",item.lowest_price)
 		print("Volume :" ,item.volume)
 	else:
