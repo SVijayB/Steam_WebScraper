@@ -41,11 +41,11 @@ def PrintMarketItem(it, volume=False):
     if len(it.name) > 0:
         print (it.name + ': ')
     if len(it.lowest_price) > 0:
-        print (it.lowest_price)
+        print ("Lowest Price : ",it.lowest_price)
     else:
         print ('No valid price found!')
     if volume and len(it.volume) > 0:
-        print (it.volume)
+        print ("Volume :" ,it.volume)
 
 
 PrintMarketItem(GetMarketItem('Nova | Polar Mesh' + FT), True)
