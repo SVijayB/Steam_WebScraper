@@ -64,6 +64,7 @@ def main(item):
 	while(True):
 		if (price < min_price):
 			print("We found a lesser price !")
+			print("You are saving :",round(min_price - price, 2),"!")
 			return
 		else:
 			print('Searching...')
