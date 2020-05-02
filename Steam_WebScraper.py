@@ -52,8 +52,10 @@ def Result(item):
 		print(item.name + ": ")
 		print("Lowest Price :",item.price)
 		print("Volume :" ,item.volume)
+		return item
 	else:
 		print("Invalid Item. Please check Item name again.")
+		return item
 
 
 def main(item):
@@ -81,7 +83,6 @@ def name():
 	print("Selected Quality :",quality[qual])
 	nm = input("Enter the name of the skin you are looking for(Has to match steam DataBase) : ")
 	final = csitems[wep]+" | "+nm+qualfinal[qual]
-	print(final)
 	return final
 
 if __name__ == "__main__":
