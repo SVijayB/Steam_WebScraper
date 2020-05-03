@@ -6,9 +6,9 @@
 
 ## Motivation
 
-This application was built to monitor Steam market value changes of all `CSGO` Items. It was an attempt at learning the basics `Web Scraping`
+This application was built to monitor Steam market value changes of all `CSGO` Items. It was an attempt at learning the basics of `Web Scraping`
 
-It helps in obtaining the item at a lower price than normal. i.e., It notifies the user when the product value decreases below the desired price. Hence saving money and a time that goes wasted on waiting for the prices to fall.
+It helps in obtaining an item at a lower price than normal. i.e., It notifies the user when the product value decreases below the desired price. Hence saving money and time that goes wasted on waiting for the prices to fall.
 
 ## Usage
 
