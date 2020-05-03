@@ -91,4 +91,5 @@ def name():
 
 if __name__ == "__main__":
 	main(Result(GetMarketItem(name())))
+	input()
 	
