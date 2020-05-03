@@ -36,7 +36,7 @@ def GetMarketItem(name):
 		data = json.loads(url.read())
 		strdata = str(data)
 	except:
-		print("ERROR: UNABLE TO LOCATE ITEM")
+		print("\nERROR: UNABLE TO LOCATE ITEM")
 		return MarketItem()
 	
 	if (strdata.find("success': True") != -1):
@@ -59,17 +59,20 @@ def Result(item):
 
 
 def main(item):
-	min_price = float(input("Enter the minimum price below which you want to be notified: "))
-	price = float(sub(r'[^\d.]', '', item.price))
-	while(True):
-		if (price < min_price):
-			print("We found a lesser price !")
-			print("You are saving :",round(min_price - price, 2),"!")
-			return
-		else:
-			print('Searching...')
-			time.sleep(4)
-			GetMarketItem(item.name)
+	if (item.success):
+		min_price = float(input("Enter the minimum price below which you want to be notified: "))
+		price = float(sub(r'[^\d.]', '', item.price))
+		while(True):
+			if (price < min_price):
+				print("We found a lesser price !")
+				print("You are saving :",round(min_price - price, 2),"!")
+				return
+			else:
+				print('Searching...')
+				time.sleep(4)
+				GetMarketItem(item.name)
+	else:
+		print("Exiting Program.")
 
 def name():
 	for x in range(len(csitems)): 
