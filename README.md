@@ -16,7 +16,7 @@ For the latest Stable version, go to <a href="https://github.com/1StranGe/Steam_
 
 Extract the files and run `Steam_WebScraper.py` present in the `src` folder.
 
-As an alternative, you culd also clone the repository.
+As an alternative, you could also clone the repository.
 <pre>
 git clone https://github.com/1StranGe/Steam_WebScraper.git
 </pre>   
