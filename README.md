@@ -21,6 +21,12 @@ As an alternative, you could also clone the repository.
 git clone https://github.com/1StranGe/Steam_WebScraper.git
 </pre>   
 
+## Contributing 
+
+To contribute to Steam_WebScrapper, fork the repository, create a new branch and send us a pull request. Make sure you read [CONTRIBUTING.md](https://github.com/1StranGe/Steam_WebScraper/blob/master/docs/CONTRIBUTING.md) before sending us Pull requests. 
+
+Also, thanks for contributing to Open-source!
+
 ## License 
 
 Steam Web Scraper is Licensed under MIT. Read the LICENSE file for more information.
