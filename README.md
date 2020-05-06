@@ -29,4 +29,4 @@ Also, thanks for contributing to Open-source!
 
 ## License 
 
-Steam Web Scraper is Licensed under MIT. Read the LICENSE file for more information.
+Steam Web Scraper is Licensed under MIT. Read the [LICENSE](https://github.com/1StranGe/Steam_WebScraper/blob/master/LICENSE) file for more information.
