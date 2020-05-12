@@ -21,6 +21,14 @@ As an alternative, you could also clone the repository.
 git clone https://github.com/1StranGe/Steam_WebScraper.git
 </pre>   
 
+### Gmail Notification 
+In case you want to be notified via mail when price falls down, follow the below steps : 
+- Create a Gmail Account, if you don't have one already.
+- Sign into your Google account.
+- Next, go to your Google account <a href="https://myaccount.google.com/security">Security Settings</a>.
+- Click on the <a href="https://myaccount.google.com/u/3/lesssecureapps">Less secure app access</a> setting.
+- Set Allow less secure apps to **ON**
+
 ## Contributing 
 
 To contribute to Steam_WebScrapper, fork the repository, create a new branch and send us a pull request. Make sure you read [CONTRIBUTING.md](https://github.com/1StranGe/Steam_WebScraper/blob/master/docs/CONTRIBUTING.md) before sending us Pull requests. 
