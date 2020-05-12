@@ -65,7 +65,7 @@ def main(item):
 		price = float(sub(r'[^\d.]', '', item.price))
 		
 		mail = input(("Would you like to be notified via mail?(Yes/No) : "))
-		if(mail=="Yes" or "yes" or "y"):
+		if(mail=="Yes" or mail=="yes" or mail=="y"):
 			print("\nMake sure you enable less secure app access. To do this, go to",
 					"Google Account settings and enable Less secure app access.")
 			username = str(input("Enter your GMAIL User name : "))
@@ -77,9 +77,9 @@ def main(item):
 			if (price < min_price):
 				print("We found a lesser price !")
 				print("You are saving :",round(min_price - price, 2),"!")
-				if(mail=="Yes" or "yes" or "y"):
+				if(mail=="Yes" or mail=="yes" or mail=="y"):
 					email(item,username,password)
-				return
+				sys.exit(0)
 			else:
 				print('Searching...')
 				time.sleep(4)
@@ -110,10 +110,8 @@ def email(item,username,password):
 	connection.ehlo()
 	connection.starttls() 
 	connection.login(username,password)
-	print(username , password, message)
 	connection.sendmail(username,username,message)
 	connection.quit()
-	sys.exit(0)
 
 if __name__ == "__main__":
 	main(Result(GetMarketItem(name())))
