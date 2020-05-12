@@ -3,8 +3,9 @@ import json
 import enum
 from data import *
 import time
-import re
-from re import sub
+from re import *
+import smtplib
+import sys
 
 class MarketItem():
 	def __init__(self):
@@ -62,11 +63,23 @@ def main(item):
 	if (item.success):
 		min_price = float(input("Enter the minimum price below which you want to be notified: "))
 		price = float(sub(r'[^\d.]', '', item.price))
+		
+		mail = input(("Would you like to be notified via mail?(Yes/No) : "))
+		if(mail=="Yes" or mail=="yes" or mail=="y"):
+			print("\nMake sure you enable less secure app access. To do this, go to",
+					"Google Account settings and enable Less secure app access.")
+			username = str(input("Enter your GMAIL User name : "))
+			password = str(input("Enter your GMAIL Password : "))
+		else:
+			print("Okay, You won't be receiving an email!")
+
 		while(True):
 			if (price < min_price):
 				print("We found a lesser price !")
 				print("You are saving :",round(min_price - price, 2),"!")
-				return
+				if(mail=="Yes" or mail=="yes" or mail=="y"):
+					email(item,username,password)
+				sys.exit(0)
 			else:
 				print('Searching...')
 				time.sleep(4)
@@ -88,6 +101,17 @@ def name():
 	nm = input("Enter the name of the skin you are looking for(Has to match steam DataBase) : ")
 	final = csitems[wep]+" | "+nm+qualfinal[qual]
 	return final
+
+def email(item,username,password):
+	host = "smtp.gmail.com"
+	port = 587
+	message = "Hey! We found your Steam Item at a lower price!"
+	connection = smtplib.SMTP(host,port)
+	connection.ehlo()
+	connection.starttls() 
+	connection.login(username,password)
+	connection.sendmail(username,username,message)
+	connection.quit()
 
 if __name__ == "__main__":
 	main(Result(GetMarketItem(name())))
