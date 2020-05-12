@@ -5,6 +5,7 @@ from data import *
 import time
 from re import *
 import smtplib
+import sys
 
 class MarketItem():
 	def __init__(self):
@@ -67,8 +68,8 @@ def main(item):
 		if(mail=="Yes" or "yes" or "y"):
 			print("\nMake sure you enable less secure app access. To do this, go to",
 					"Google Account settings and enable Less secure app access.")
-			username = input("Enter your GMAIL User name : ")
-			password = input("Enter your GMAIL Password : ")
+			username = str(input("Enter your GMAIL User name : "))
+			password = str(input("Enter your GMAIL Password : "))
 		else:
 			print("Okay, You won't be receiving an email!")
 
@@ -104,13 +105,15 @@ def name():
 def email(item,username,password):
 	host = "smtp.gmail.com"
 	port = 587
-	message = "Hey! We found your Steam Item",item.name,"at a lower price!"
+	message = "Hey! We found your Steam Item at a lower price!"
 	connection = smtplib.SMTP(host,port)
 	connection.ehlo()
 	connection.starttls() 
 	connection.login(username,password)
+	print(username , password, message)
 	connection.sendmail(username,username,message)
 	connection.quit()
+	sys.exit(0)
 
 if __name__ == "__main__":
 	main(Result(GetMarketItem(name())))
