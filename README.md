@@ -28,6 +28,11 @@ In case you want to be notified via mail when price falls down, follow the below
 - Next, go to your Google account <a href="https://myaccount.google.com/security">Security Settings</a>.
 - Click on the <a href="https://myaccount.google.com/u/3/lesssecureapps">Less secure app access</a> setting.
 - Set Allow less secure apps to **ON**
+- Next, Open your [Gmail](https://www.gmail.com/) account.
+- Click on Gmail Settings.
+- Now, click on the Forwarding and POP/IMAP tab.
+- Under POP download section, Click on Enable POP for all mail.
+- Under IMAP access section, Click on Enable IMAP.
 
 ## Contributing 
 
