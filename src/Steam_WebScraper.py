@@ -6,6 +6,7 @@ import time
 from re import *
 import smtplib
 import sys
+from mailing import *
 
 class MarketItem():
 	def __init__(self):
@@ -101,17 +102,6 @@ def name():
 	nm = input("Enter the name of the skin you are looking for(Has to match steam DataBase) : ")
 	final = csitems[wep]+" | "+nm+qualfinal[qual]
 	return final
-
-def email(item,username,password):
-	host = "smtp.gmail.com"
-	port = 587
-	message = "Hey! We found your Steam Item at a lower price!"
-	connection = smtplib.SMTP(host,port)
-	connection.ehlo()
-	connection.starttls() 
-	connection.login(username,password)
-	connection.sendmail(username,username,message)
-	connection.quit()
 
 if __name__ == "__main__":
 	main(Result(GetMarketItem(name())))
