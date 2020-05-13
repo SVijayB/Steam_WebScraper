@@ -79,7 +79,7 @@ def main(item):
 				print("We found a lesser price !")
 				print("You are saving :",round(min_price - price, 2),"!")
 				if(mail=="Yes" or mail=="yes" or mail=="y"):
-					email(item,username,password)
+					email(username,password)
 				sys.exit(0)
 			else:
 				print('Searching...')
