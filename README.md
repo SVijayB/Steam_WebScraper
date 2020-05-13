@@ -4,6 +4,13 @@
     <br>A simple App to monitor prices on the Steam market
 </p>
 
+## Table of Contents
+
+- [Motivation](#Motivation)
+- [Usage](#Usage)
+- [Contributing](#Contributing)
+- [License](#License)
+
 ## Motivation
 
 This application was built to monitor Steam market value changes of all `CSGO` Items. It was an attempt at learning the basics of `Web Scraping`
