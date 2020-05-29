@@ -112,4 +112,7 @@ def main(item):
 		input("Press any key to exit ")
 
 if __name__ == "__main__":
+	data = open("../version.txt" , "r").read()
+	print("Steam_WebScraper | " + data)
+	time.sleep(1)
 	main(Result(GetMarketItem(name())))

@@ -1,5 +1,6 @@
 from Steam_WebScraper import *
 def name():
+	print()
 	for x in range(len(csitems)): 
 		print (x+1,csitems[x])
 		time.sleep(0.000025)
