@@ -9,8 +9,8 @@ def email(username,password):
 	connection.ehlo()
 	connection.starttls() 
 	connection.login(username,password)
-	tmessage = MIMEMultipart("alternate")           # For the mail to understand HTML
-	tmessage ["Subject"] = "Steam Item found at lower price!"           # You can add Subjects as well.
+	tmessage = MIMEMultipart("alternate")         
+	tmessage ["Subject"] = "Steam Item found at lower price!"
 	tmessage["From"] = username
 	tmessage["To"] = username
     

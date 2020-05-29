@@ -97,7 +97,11 @@ def main(item):
 				print("\nWe found an Item at a lesser price !")
 				print("You are saving :",round(min_price - price, 2),"$")
 				if(mail=="Yes" or mail=="yes" or mail=="y"):
-					email(username,password)
+					try:
+						email(username,password)
+					except:
+						print("ERROR : WRONG E-MAIL CREDENTIALS")
+						print("Unable to send E-mail")
 				input("Press any key to exit ")
 				sys.exit(0)
 			else:
