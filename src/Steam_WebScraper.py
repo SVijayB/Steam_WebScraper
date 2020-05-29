@@ -1,13 +1,13 @@
 import urllib.request
 import json
 import enum
-from data import *
 import time
 from re import *
 import smtplib
 import sys
-from mailing import *
-from name import *
+from Modules.data import *
+from Modules.mailing import *
+from Modules.name import *
 
 class MarketItem():
 	def __init__(self):
@@ -52,9 +52,9 @@ def GetMarketItem(name):
 def Result(item):
 	if (item.success):
 		print("\nData Collected : ")
-		print(item.name + ": ")
-		print("Lowest Price :",item.price)
-		print("Volume :" ,item.volume)
+		print("\t"+item.name + ": ")
+		print("\tLowest Price :",item.price)
+		print("\tVolume :" ,item.volume)
 		return item
 	else:
 		print("Invalid Item. Please check Item name again.")
@@ -63,15 +63,15 @@ def Result(item):
 
 def main(item):
 	if (item.success):
-		min_price = float(input("Enter the minimum price below which you want to be notified: "))
+		min_price = float(input("\nEnter the minimum price below which you want to be notified\n> "))
 		price = float(sub(r'[^\d.]', '', item.price))
 		
-		mail = input(("Would you like to be notified via mail?(Yes/No) : "))
+		mail = input(("Would you like to be notified via mail?(Yes/No)\n> "))
 		if(mail=="Yes" or mail=="yes" or mail=="y"):
 			print("\nMake sure you enable less secure app access. To do this, go to",
 					"Google Account settings and enable Less secure app access.")
-			username = str(input("Enter your GMAIL User name : "))
-			password = str(input("Enter your GMAIL Password : "))
+			username = str(input("Enter your GMAIL User name\n> "))
+			password = str(input("Enter your GMAIL Password\n> "))
 		else:
 			print("Okay, You won't be receiving an email!")
 
@@ -87,7 +87,7 @@ def main(item):
 				time.sleep(4)
 				GetMarketItem(item.name)
 	else:
-		print("Exiting Program.")
+		print("Exiting Program")
 
 if __name__ == "__main__":
 	main(Result(GetMarketItem(name())))
