@@ -52,7 +52,7 @@ def GetMarketItem(name):
 def Result(item):
 	if (item.success):
 		print("\nData Collected : ")
-		print("\t"+item.name + ": ")
+		print("\t"+item.name)
 		print("\tLowest Price :",item.price)
 		print("\tVolume :" ,item.volume)
 		return item
@@ -63,33 +63,49 @@ def Result(item):
 
 def main(item):
 	if (item.success):
-		min_price = float(input("\nEnter the minimum price below which you want to be notified\n> "))
+		print("\nEnter the minimum price below which you want to be notified")
+		min_price = None
+		var = None
+		while (isinstance(min_price,float)) is not True:
+			try:
+				min_price = float(input("> "))
+				if(isinstance(min_price,float)) is not True:
+					raise ValueError
+			except ValueError:
+				print("ERROR : INVALID TYPE. ENTER ONLY NUMBERS")
 		price = float(sub(r'[^\d.]', '', item.price))
 		
-		mail = input(("Would you like to be notified via mail?(Yes/No)\n> "))
+		print(("Would you like to be notified via mail?(Yes/No)"))
+		mail = ""
+		while (mail!="Yes" and mail!="yes" and mail!="y" and mail!="No" and mail!="no" and mail!="n"):
+			try:
+				mail = (input("> "))
+				if(mail!="Yes" and mail!="yes" and mail!="y" and mail!="No" and mail!="no" and mail!="n"):
+					raise ValueError
+			except ValueError:
+				print("ERROR : INVALID CHOICE")
 		if(mail=="Yes" or mail=="yes" or mail=="y"):
-			print("\nMake sure you enable less secure app access. To do this, go to",
+			print("\nMake sure you enable less secure app access.\nTo do this, go to",
 					"Google Account settings and enable Less secure app access.")
 			username = str(input("Enter your GMAIL User name\n> "))
 			password = str(input("Enter your GMAIL Password\n> "))
 		else:
-			print("Okay, You won't be receiving an email!")
+			print("\nOkay, You won't be receiving an E-mail!")
 
 		while(True):
 			if (price < min_price):
-				print("We found a lesser price !")
-				print("You are saving :",round(min_price - price, 2),"!")
+				print("\nWe found an Item at a lesser price !")
+				print("You are saving :",round(min_price - price, 2),"$")
 				if(mail=="Yes" or mail=="yes" or mail=="y"):
 					email(username,password)
+				input("Press any key to exit ")
 				sys.exit(0)
 			else:
 				print('Searching...')
 				time.sleep(4)
 				GetMarketItem(item.name)
 	else:
-		print("Exiting Program")
+		input("Press any key to exit ")
 
 if __name__ == "__main__":
 	main(Result(GetMarketItem(name())))
-	input()
-	
