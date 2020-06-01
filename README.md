@@ -4,6 +4,21 @@
     <br>A simple App to monitor prices on the Steam market
 </p>
 
+<br>
+
+---
+
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/SVijayB/Steam_WebScraper.svg)](https://github.com/SVijayB/Steam_WebScraper/pulls)
+[![GitHub issues](https://img.shields.io/github/issues/SVijayB/Steam_WebScraper.svg)](https://github.com/SVijayB/Steam_WebScraper/issues)
+[![GitHub contributors](https://img.shields.io/github/contributors/SVijayB/Steam_WebScraper.svg)](https://github.com/SVijayB/Steam_WebScraper/graphs/contributors)
+
+[![GitHub license](https://img.shields.io/github/license/SVijayB/Steam_WebScraper.svg)](https://github.com/SVijayB/Steam_WebScraper/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/SVijayB/Steam_WebScraper.svg)](https://github.com/SVijayB/Steam_WebScraper/releases)
+[![GitHub repo size](https://img.shields.io/github/repo-size/svijayb/Steam_WebScraper)](https://github.com/SVijayB/Steam_WebScraper)
+
+[![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat)](https://github.com/SVijayB/Steam_WebScraper/blob/master/docs/CODE_OF_CONDUCT.md)
+[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/SVijayB/Steam_WebScraper/blob/master/docs/CONTRIBUTING.md)
+
 ## Table of Contents
 
 - [Motivation](#Motivation)
