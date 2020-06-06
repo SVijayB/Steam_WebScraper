@@ -13,6 +13,7 @@ class MarketItem():
 		self.price = ""
 		self.name = ""
 		self.volume = 0
+		self.symbol = ""
 
 	def give_success(self, success):
 		self.success = success
@@ -25,6 +26,9 @@ class MarketItem():
 	
 	def give_volume(self, volume):
 		self.volume = volume
+
+	def give_symbol(self, symbol):
+		self.symbol = symbol
 
 def GetMarketItem(name):
 	strdata = ""
@@ -50,6 +54,9 @@ def GetMarketItem(name):
 def Result(item):
 	if (item.success):
 		lowest_price = currency(item.price)
+		item.price = float(sub(r'[^\d.]', '', lowest_price))
+		item.symbol = lowest_price.replace(str(item.price),"")
+
 		print("\nData Collected : ")
 		print("\t"+item.name)
 		print("\tLowest Price :", lowest_price)
@@ -72,7 +79,7 @@ def main(item):
 					raise ValueError
 			except ValueError:
 				print("ERROR : INVALID TYPE. ENTER ONLY NUMBERS")
-		price = float(sub(r'[^\d.]', '', item.price))
+		price = item.price
 		
 		print(("Would you like to be notified via mail?(Yes/No)"))
 		mail = ""
@@ -94,12 +101,14 @@ def main(item):
 		while(True):
 			if (price < min_price):
 				print("\nWe found an Item at a lesser price !")
+				print("You are saving", abs(price-min_price), item.symbol)
 				if(mail=="Yes" or mail=="yes" or mail=="y"):
 					try:
 						email(username,password)
 					except:
 						print("ERROR : WRONG E-MAIL CREDENTIALS")
 						print("Unable to send E-mail")
+				print("\nThanks for Using Steam_WebScraper")
 				input("Press any key to exit ")
 				sys.exit(0)
 			else:
