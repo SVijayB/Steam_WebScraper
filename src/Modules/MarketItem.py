@@ -21,7 +21,7 @@ class MarketItem():
 		self.name = name
 	
 	def give_price(self, price):
-		self.price = pvalues
+		self.price = price
 	
 	def give_volume(self, volume):
 		self.volume = volume
@@ -30,10 +30,10 @@ def GetMarketItem(name):
 	strdata = ""
 	Item = MarketItem()
 	Item.give_name(name)
-	temp_namvaluesname.replace(" ", "+")
+	temp_name = name.replace(" ", "+")
 	
 	try:
-		url =valueslib.request.urlopen("http://steamcommunity.com/market/priceoverview/?appid=730&currency=1&market_hash_name=%s" %temp_name)
+		url = urllib.request.urlopen("http://steamcommunity.com/market/priceoverview/?appid=730&currency=1&market_hash_name=%s" %temp_name)
 		data = json.loads(url.read())
 		strdata = str(data)
 	except:
@@ -49,9 +49,10 @@ def GetMarketItem(name):
 
 def Result(item):
 	if (item.success):
+		lowest_price = currency(item.price)
 		print("\nData Collected : ")
 		print("\t"+item.name)
-		print("\tLowest Price :",currency(item.price))
+		print("\tLowest Price :", lowest_price)
 		print("\tVolume :" ,item.volume)
 		return item
 	else:
@@ -93,7 +94,6 @@ def main(item):
 		while(True):
 			if (price < min_price):
 				print("\nWe found an Item at a lesser price !")
-				print("You are saving :",round(min_price - price, 2),"$")
 				if(mail=="Yes" or mail=="yes" or mail=="y"):
 					try:
 						email(username,password)
