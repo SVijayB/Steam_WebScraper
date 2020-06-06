@@ -6,6 +6,7 @@ import time
 import sys
 from Modules.Mailing import *
 from Modules.Currency import *
+import getpass
 
 class MarketItem():
 	def __init__(self):
@@ -55,7 +56,7 @@ def Result(item):
 	if (item.success):
 		lowest_price = currency(item.price)
 		item.price = float(sub(r'[^\d.]', '', lowest_price))
-		item.symbol = lowest_price.replace(str(item.price),"")
+		item.symbol = lowest_price.replace(str(item.price)+" ","")
 
 		print("\nData Collected : ")
 		print("\t"+item.name)
@@ -94,7 +95,7 @@ def main(item):
 			print("\nMake sure you enable less secure app access.\nTo do this, go to",
 					"Google Account settings and enable Less secure app access.")
 			username = str(input("Enter your GMAIL User name\n> "))
-			password = str(input("Enter your GMAIL Password\n> "))
+			password = getpass.getpass(prompt="Enter your GMAIL Password (Password Will not be visible)\n> ")
 		else:
 			print("\nOkay, You won't be receiving an E-mail!")
 

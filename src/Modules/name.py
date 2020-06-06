@@ -3,7 +3,7 @@ import time
 
 def name():
 	print()
-	print("CSGO ITEMS : \n")
+	print("CSGO ITEMS : ")
 	for x in range(len(csitems)): 
 		print (x+1,csitems[x])
 		time.sleep(0.000025)
@@ -19,7 +19,7 @@ def name():
 	wep = int(wep)-1
 	print("\nSelected Item -",csitems[wep]+"\n")
 
-	print("ITEM QUALITY : \n")
+	print("ITEM QUALITY : ")
 	for x in range(len(quality)): 
 		print (x+1,quality[x])
 	print("Pick the Quality of skin you are looking for")
@@ -34,6 +34,6 @@ def name():
 	qual = int(qual)-1
 	
 	print("\nSelected Quality -",quality[qual]+"\n")
-	nm = input("Enter the name of the skin you are looking for(Has to match steam DataBase)\n> ")
+	nm = input("Enter the name of the skin you are looking for (Has to match Steam DataBase)\n> ")
 	final = csitems[wep]+" | "+nm+qualfinal[qual]
 	return final
