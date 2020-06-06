@@ -1,5 +1,5 @@
-from Modules.data import *
-from Modules.name import *
+from Modules.Data import *
+from Modules.Name import *
 from Modules.MarketItem import MarketItem
 from Modules.MarketItem import *
 
