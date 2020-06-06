@@ -4,7 +4,7 @@ import urllib.request
 import json
 import time
 import sys
-from Modules.mailing import *
+from Modules.Mailing import *
 
 class MarketItem():
 	def __init__(self):
