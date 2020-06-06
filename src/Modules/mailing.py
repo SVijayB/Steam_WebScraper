@@ -10,7 +10,7 @@ def email(username,password):
 	connection.starttls() 
 	connection.login(username,password)
 	tmessage = MIMEMultipart("alternate")         
-	tmessage ["Subject"] = "Steam Item found at lower price!"
+	tmessage ["Subject"] = "Steam Item found at a lower price!"
 	tmessage["From"] = username
 	tmessage["To"] = username
     

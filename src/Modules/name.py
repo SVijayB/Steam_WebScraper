@@ -1,4 +1,6 @@
 from Steam_WebScraper import *
+import time
+
 def name():
 	print()
 	for x in range(len(csitems)): 
