@@ -5,6 +5,7 @@ import json
 import time
 import sys
 from Modules.Mailing import *
+from Modules.Currency import *
 
 class MarketItem():
 	def __init__(self):
@@ -20,7 +21,7 @@ class MarketItem():
 		self.name = name
 	
 	def give_price(self, price):
-		self.price = price
+		self.price = pvalues
 	
 	def give_volume(self, volume):
 		self.volume = volume
@@ -29,10 +30,10 @@ def GetMarketItem(name):
 	strdata = ""
 	Item = MarketItem()
 	Item.give_name(name)
-	temp_name = name.replace(" ", "+")
+	temp_namvaluesname.replace(" ", "+")
 	
 	try:
-		url = urllib.request.urlopen("http://steamcommunity.com/market/priceoverview/?appid=730&currency=1&market_hash_name=%s" %temp_name)
+		url =valueslib.request.urlopen("http://steamcommunity.com/market/priceoverview/?appid=730&currency=1&market_hash_name=%s" %temp_name)
 		data = json.loads(url.read())
 		strdata = str(data)
 	except:
@@ -50,7 +51,7 @@ def Result(item):
 	if (item.success):
 		print("\nData Collected : ")
 		print("\t"+item.name)
-		print("\tLowest Price :",item.price)
+		print("\tLowest Price :",currency(item.price))
 		print("\tVolume :" ,item.volume)
 		return item
 	else:
