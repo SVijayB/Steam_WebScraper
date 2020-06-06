@@ -102,7 +102,7 @@ def main(item):
 		while(True):
 			if (price < min_price):
 				print("\nWe found an Item at a lesser price !")
-				print("You are saving", abs(price-min_price), item.symbol)
+				print("You are saving", abs(round(price-min_price,2)), item.symbol)
 				if(mail=="Yes" or mail=="yes" or mail=="y"):
 					try:
 						email(username,password)
