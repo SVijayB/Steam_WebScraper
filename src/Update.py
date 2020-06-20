@@ -2,6 +2,7 @@ from urllib.request import urlopen
 from json import loads
 from datetime import datetime
 import sys
+import json
 
 def last_updated_on():
     date = open("assets/LastUpdatedOn.txt","r")
@@ -11,20 +12,25 @@ def last_updated_on():
     date.close()
 
 def last_time_update():
-    date = open("assets/LastUpdatedOn.txt","w")
+    date = open("../assets/LastUpdatedOn.txt","w")
     now = datetime.now()
     DateAndTime = now.strftime("%d/%m/%Y %H:%M:%S")
     date.write(DateAndTime)
     date.close()
 
 def update():
-    url = urlopen("http://csgobackpack.net/api/GetItemsList/v2/?no_prices=yes&no_details=yes&details=no")
-    data = loads(url.read())
-    strdata = str(data)
-    path = "assets/Data.txt"
-    with open(path,"a",encoding="utf-8") as f:
-        f.write(strdata)
-    f.close()
+    try:
+        url = urlopen("http://csgobackpack.net/api/GetItemsList/v2/?no_prices=yes&no_details=yes&details=no&prettyprint=yes")
+        data = json.loads(url.read())
+        strdata = str(data)
+        path = "../assets/Data.txt"
+        with open(path,"w",encoding="utf-8") as f:
+            f.write(strdata)
+        f.close()
+    except:
+        print("API RESPONSE ERROR...\nTry again in a while.")
+        input("Press any key to exit ")
+        sys.exit(0)
 
 if __name__ == "__main__":
     last_updated_on()
