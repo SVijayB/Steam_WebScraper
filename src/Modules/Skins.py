@@ -2,7 +2,7 @@ import re
 import time
 
 def skins(wep):
-	data = open("assets/Data.txt","r",encoding="utf-8").read()
+	data = open("../assets/Data.txt","r",encoding="utf-8").read()
 	i = 0
 
 	qual = "Battle-Scarred"
@@ -32,7 +32,7 @@ def skins(wep):
 	return(item_list[item])
 
 def searching(wep,qual,i):
-	data = open("assets/Data.txt","r",encoding="utf-8").read()
+	data = open("../assets/Data.txt","r",encoding="utf-8").read()
 	item_list = [] 
 	while(True):
 		try:

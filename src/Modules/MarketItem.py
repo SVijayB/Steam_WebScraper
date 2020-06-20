@@ -45,10 +45,14 @@ def GetMarketItem(name):
 		print("\nERROR: UNABLE TO LOCATE ITEM")
 		return MarketItem()
 	
-	if (strdata.find("success': True") != -1):
-	    Item.give_success(True)
-	    Item.give_price(data['lowest_price'])
-	    Item.give_volume(data['volume'])
+	try:
+		if (strdata.find("success': True") != -1):
+			Item.give_success(True)
+			Item.give_price(data['lowest_price'])
+			Item.give_volume(data['volume'])
+	except:
+		print("\nERROR: UNABLE TO RETRIEVE DATA.")
+		return MarketItem()
 
 	return Item
 
@@ -64,7 +68,6 @@ def Result(item):
 		print("\tVolume :" ,item.volume)
 		return item
 	else:
-		print("Invalid Item. Please check Item name again.")
 		return item
 
 

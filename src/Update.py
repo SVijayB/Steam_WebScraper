@@ -5,7 +5,7 @@ import sys
 import json
 
 def last_updated_on():
-    date = open("assets/LastUpdatedOn.txt","r")
+    date = open("../assets/LastUpdatedOn.txt","r")
     DateAndTime = date.read()
     if(len(DateAndTime)!=0):
         print("Last Updated On " + DateAndTime)

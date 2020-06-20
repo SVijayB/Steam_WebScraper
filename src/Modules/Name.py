@@ -10,10 +10,10 @@ def name():
 		time.sleep(0.0025)
 	print("Pick the number that matches the Item you are looking for")
 	wep = 0
-	while (wep<1 or wep>53):
+	while (wep<1 or wep>34):
 		try:
 			wep = int(input("> "))
-			if(wep<1 or wep>53):
+			if(wep<1 or wep>34):
 				raise ValueError
 		except ValueError:
 			print("ERROR : INVALID NUMBER")
