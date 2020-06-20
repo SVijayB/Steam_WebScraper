@@ -20,10 +20,10 @@ def skins(wep):
 	item = 0
 
 	print("Pick the item skin")
-	while (item<1 or item>(len(item_list)+1)):
+	while (item<1 or item>(len(item_list))):
 		try:
 			item = int(input("> "))
-			if(item<1 or item>(len(item_list)+1)):
+			if(item<1 or item>(len(item_list))):
 				raise ValueError
 		except ValueError:
 			print("ERROR : INVALID NUMBER")
