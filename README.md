@@ -36,12 +36,19 @@ It helps in obtaining an item at a lower price than normal. i.e., It notifies th
 
 For the latest Stable version, go to <a href="https://github.com/SVijayB/Steam_WebScraper/releases">Releases</a>
 
-Extract the files and run `Steam_WebScraper.py` present in the `src` folder.
-
-As an alternative, you could also clone the repository.
+As an alternative, you could also clone this repository using,
 <pre>
 git clone https://github.com/SVijayB/Steam_WebScraper.git
-</pre>   
+</pre>
+
+Extract the files and run `Update.py` file present in the `src` folder.<br>
+This is to update your local data (Item skin names). 
+
+Once the update is completed, run the `Steam_WebScraper.py` file present in the `src` folder.
+
+Now, just follow the instructions provided by the application.
+
+**NOTE** : Update your local data using the `Update.py` file after every new CSGO case releases in order to view all the latest skins.
 
 ### Gmail Notification 
 In case you want to be notified via mail when price falls down, follow the below steps : 
