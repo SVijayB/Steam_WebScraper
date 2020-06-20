@@ -3,20 +3,18 @@ import time
 
 def skins(wep):
 	data = open("assets/Data.txt","r",encoding="utf-8").read()
-	item_list = []
 	i = 0
 	qual = "Battle-Scarred"
-	value = re.findall(r": '%s \| (.*?) \(%s\)'" %(wep, qual), data)[0]
-	print(len(value))
+	if(wep=="Bayonet"):
+		value = re.findall(r"%s \| (.*?) \(%s\)'" %(wep,qual), data)[0]
+		i = 1
+	else:
+		value = re.findall(r": '%s \| (.*?) \(%s\)'" %(wep, qual), data)[0]
+		
 	if(len(value)>25):
 		qual = "Factory New"
-	while(True):
-		try:
-			value = re.findall(r": '%s \| (.*?) \(%s\)'" %(wep, qual), data)[i]
-			item_list.append(value)
-			i = i + 2
-		except:
-			break
+
+	item_list = searching(wep,qual,i)
 
 	print("ITEM SKINS : ")
 	for i in range(len(item_list)):
@@ -36,4 +34,21 @@ def skins(wep):
 	print("\nSelected Skin -", item_list[item])
 	return(item_list[item])
 
-skins("FAMAS")
+def searching(wep,qual,i=0):
+	data = open("assets/Data.txt","r",encoding="utf-8").read()
+	item_list = []
+	while(True):
+		try:
+			if(wep=="Bayonet"):
+				value = re.findall(r"%s \| (.*?) \(%s\)'" %(wep,qual), data)[i]
+				if(len(value)>25):
+					break
+			else:
+				value = re.findall(r": '%s \| (.*?) \(%s\)'" %(wep, qual), data)[i]
+			item_list.append(value)
+			i = i + 2
+		except:
+			break
+	return item_list
+
+skins("Bayonet")
