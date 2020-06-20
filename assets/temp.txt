@@ -1,0 +1,6 @@
+special = ["Bayonet","Butterfly Knife","Falchion Knife","Flip Knife","Gut Knife",
+	"Huntsman Knife","Karambit","M9 Bayonet","Shadow Daggers","Bowie Knife","Ursus Knife",
+	"Navaja Knife","Stiletto Knife","Talon Knife","Nomad Knife","Skeleton Knife","Survival Knife",
+	"Paracord Knife"]
+
+Steam API does not work for any of these skins. Valve please fix.
