@@ -5,9 +5,14 @@ def skins(wep):
 	data = open("assets/Data.txt","r",encoding="utf-8").read()
 	item_list = []
 	i = 0
+	qual = "Battle-Scarred"
+	value = re.findall(r": '%s \| (.*?) \(%s\)'" %(wep, qual), data)[0]
+	print(len(value))
+	if(len(value)>25):
+		qual = "Factory New"
 	while(True):
 		try:
-			value = re.findall(r": '%s \| (.*?) \(%s\)'" %(wep, "Battle-Scarred"), data)[i]
+			value = re.findall(r": '%s \| (.*?) \(%s\)'" %(wep, qual), data)[i]
 			item_list.append(value)
 			i = i + 2
 		except:
@@ -30,3 +35,5 @@ def skins(wep):
 	item = int(item)-1
 	print("\nSelected Skin -", item_list[item])
 	return(item_list[item])
+
+skins("FAMAS")
