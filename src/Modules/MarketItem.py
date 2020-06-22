@@ -86,7 +86,7 @@ def main(item):
 				red("ERROR : INVALID TYPE. ENTER ONLY NUMBERS")
 		price = item.price
 		
-		yellow(("Would you like to be notified via mail?(Yes/No)"))
+		yellow(("Would you like to be notified via mail?(Y/n)"))
 		mail = ""
 		while (mail!="Yes" and mail!="yes" and mail!="y" and mail!="No" and mail!="no" and mail!="n"):
 			try:
