@@ -63,7 +63,7 @@ def Result(item):
 		item.price = float(sub(r'[^\d.]', '', lowest_price))
 		item.symbol = lowest_price.replace(str(item.price)+" ","")
 
-		cyan("\nData Collected : ")
+		yellow("\nData Collected : ")
 		cyan("\t"+item.name)
 		cyan("\tLowest Price : "+ str(lowest_price))
 		cyan("\tVolume : " + str(item.volume))
@@ -74,7 +74,7 @@ def Result(item):
 
 def main(item):
 	if (item.success):
-		print("\nEnter the minimum price below which you want to be notified")
+		yellow("\nEnter the minimum price below which you want to be notified")
 		min_price = None
 		var = None
 		while (isinstance(min_price,float)) is not True:
@@ -86,7 +86,7 @@ def main(item):
 				red("ERROR : INVALID TYPE. ENTER ONLY NUMBERS")
 		price = item.price
 		
-		print(("Would you like to be notified via mail?(Yes/No)"))
+		yellow(("Would you like to be notified via mail?(Yes/No)"))
 		mail = ""
 		while (mail!="Yes" and mail!="yes" and mail!="y" and mail!="No" and mail!="no" and mail!="n"):
 			try:
@@ -98,15 +98,17 @@ def main(item):
 		if(mail=="Yes" or mail=="yes" or mail=="y"):
 			print("\nMake sure you enable less secure app access.\nTo do this, go to",
 					"Google Account settings and enable Less secure app access.")
-			username = str(input("Enter your GMAIL User name\n> "))
-			password = getpass.getpass(prompt="Enter your GMAIL Password (Password Will not be visible)\n> ")
+			yellow("Enter your GMAIL User name")
+			username = str(input("> "))
+			yellow("Enter your GMAIL Password (Password Will not be visible)")
+			password = getpass.getpass(prompt="> ")
 		else:
 			cyan("\nOkay, You won't be receiving an E-mail!")
 
 		while(True):
 			if (price < min_price):
 				green("\nWe found an Item at a lesser price !")
-				print("You are saving", cyan(str(abs(round(price-min_price,2))) + str(item.symbol)))
+				print("You are saving", abs(round(price-min_price,2)), item.symbol)
 				if(mail=="Yes" or mail=="yes" or mail=="y"):
 					try:
 						email(username,password)

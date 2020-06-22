@@ -14,13 +14,13 @@ def skins(wep):
 	item_list = searching(wep,qual,i)
 
 	max = len(item_list)
-	print("ITEM SKINS : ")
+	cyan("ITEM SKINS : ")
 	for i in range(max):
 		print((i+1), "\b)" , item_list[i])
 		time.sleep(0.0025)
 	item = 0
 
-	print("Pick the item skin")
+	yellow("Pick the item skin")
 	while (item<1 or item>(len(item_list))):
 		try:
 			item = int(input("> "))
@@ -29,7 +29,7 @@ def skins(wep):
 		except ValueError:
 			red("ERROR : INVALID NUMBER")
 	item = int(item)-1
-	print("\nSelected Skin -", item_list[item])
+	green("\nSelected Skin - " + str(item_list[item]))
 	return(item_list[item])
 
 def searching(wep,qual,i):

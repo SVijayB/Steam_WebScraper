@@ -15,11 +15,11 @@ def currency(price):
     value = re.findall(r": (.*?),", rates)
     currency = re.findall(r"'(.*?)'", rates)
 
-    print("CURRENCY : ")
+    cyan("CURRENCY : ")
     for x in range(len(currency)-1): 
         print (x+1,currency[x])
         time.sleep(0.000025)
-    print("Pick your currency type")
+    yellow("Pick your currency type")
     choice = 0
     while (choice<1 or choice>31):
         try:
