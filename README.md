@@ -29,7 +29,7 @@
 ## Motivation
 
 <p align="center">
-    <img src="https://i.ibb.co/b1Ds5gv/Main-SS.png" alt="Logo" border="0"></a>
+    <img src="https://i.ibb.co/b1Ds5gv/Main-SS.png" alt="Logo" border="0">
 </p>
 
 This application was built to monitor Steam market value changes of all `CSGO` Items. It was an attempt at learning the basics of `Web Scraping`
