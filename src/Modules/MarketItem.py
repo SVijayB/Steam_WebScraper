@@ -116,7 +116,7 @@ def main(item):
 						red("ERROR : WRONG E-MAIL CREDENTIALS")
 						red("Unable to send E-mail")
 				green("\nThanks for Using Steam_WebScraper")
-				grey("Press any key to exit ")
+				grey("Press enter to exit ")
 				input()
 				sys.exit(0)
 			else:
@@ -124,5 +124,5 @@ def main(item):
 				time.sleep(4)
 				GetMarketItem(item.name)
 	else:
-		grey("Press any key to exit ")
+		grey("Press enter to exit ")
 		input()

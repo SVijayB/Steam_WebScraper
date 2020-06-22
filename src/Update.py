@@ -31,7 +31,7 @@ def update():
         f.close()
     except:
         red("API RESPONSE ERROR...\nTry again in a while.")
-        grey("Press any key to exit ")
+        grey("Press enter to exit ")
         input()
         sys.exit(0)
 
@@ -47,7 +47,7 @@ if __name__ == "__main__":
             break
         elif(choice=="n" or choice=="no"):
             green("Thanks for using Steam_WebScraper")
-            grey("Press any key to exit ")
+            grey("Press enter to exit ")
             input()
             sys.exit(0)
         else:
@@ -57,5 +57,5 @@ if __name__ == "__main__":
     update()
     last_time_update()
     green("Data has been successfully updated!")
-    grey("Press any key to exit ")
+    grey("Press enter to exit ")
     input()
