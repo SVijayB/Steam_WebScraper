@@ -1,11 +1,12 @@
+from Modules.Mailing import *
+from Modules.Currency import *
+from Modules.Colours import *
 from re import *
 import enum
 import urllib.request
 import json
 import time
 import sys
-from Modules.Mailing import *
-from Modules.Currency import *
 import getpass
 
 class MarketItem():
@@ -42,7 +43,7 @@ def GetMarketItem(name):
 		data = json.loads(url.read())
 		strdata = str(data)
 	except:
-		print("\nERROR: UNABLE TO LOCATE ITEM")
+		red("\nERROR: UNABLE TO LOCATE ITEM")
 		return MarketItem()
 	
 	try:
@@ -51,7 +52,7 @@ def GetMarketItem(name):
 			Item.give_price(data['lowest_price'])
 			Item.give_volume(data['volume'])
 	except:
-		print("\nERROR: UNABLE TO RETRIEVE DATA.")
+		red("\nERROR: UNABLE TO RETRIEVE DATA.")
 		return MarketItem()
 
 	return Item
@@ -62,10 +63,10 @@ def Result(item):
 		item.price = float(sub(r'[^\d.]', '', lowest_price))
 		item.symbol = lowest_price.replace(str(item.price)+" ","")
 
-		print("\nData Collected : ")
-		print("\t"+item.name)
-		print("\tLowest Price :", lowest_price)
-		print("\tVolume :" ,item.volume)
+		cyan("\nData Collected : ")
+		cyan("\t"+item.name)
+		cyan("\tLowest Price : "+ str(lowest_price))
+		cyan("\tVolume : " + str(item.volume))
 		return item
 	else:
 		return item
@@ -82,7 +83,7 @@ def main(item):
 				if(isinstance(min_price,float)) is not True:
 					raise ValueError
 			except ValueError:
-				print("ERROR : INVALID TYPE. ENTER ONLY NUMBERS")
+				red("ERROR : INVALID TYPE. ENTER ONLY NUMBERS")
 		price = item.price
 		
 		print(("Would you like to be notified via mail?(Yes/No)"))
@@ -93,31 +94,33 @@ def main(item):
 				if(mail!="Yes" and mail!="yes" and mail!="y" and mail!="No" and mail!="no" and mail!="n"):
 					raise ValueError
 			except ValueError:
-				print("ERROR : INVALID CHOICE")
+				red("ERROR : INVALID CHOICE")
 		if(mail=="Yes" or mail=="yes" or mail=="y"):
 			print("\nMake sure you enable less secure app access.\nTo do this, go to",
 					"Google Account settings and enable Less secure app access.")
 			username = str(input("Enter your GMAIL User name\n> "))
 			password = getpass.getpass(prompt="Enter your GMAIL Password (Password Will not be visible)\n> ")
 		else:
-			print("\nOkay, You won't be receiving an E-mail!")
+			cyan("\nOkay, You won't be receiving an E-mail!")
 
 		while(True):
 			if (price < min_price):
-				print("\nWe found an Item at a lesser price !")
-				print("You are saving", abs(round(price-min_price,2)), item.symbol)
+				green("\nWe found an Item at a lesser price !")
+				print("You are saving", cyan(str(abs(round(price-min_price,2))) + str(item.symbol)))
 				if(mail=="Yes" or mail=="yes" or mail=="y"):
 					try:
 						email(username,password)
 					except:
-						print("ERROR : WRONG E-MAIL CREDENTIALS")
-						print("Unable to send E-mail")
-				print("\nThanks for Using Steam_WebScraper")
-				input("Press any key to exit ")
+						red("ERROR : WRONG E-MAIL CREDENTIALS")
+						red("Unable to send E-mail")
+				green("\nThanks for Using Steam_WebScraper")
+				grey("Press any key to exit ")
+				input()
 				sys.exit(0)
 			else:
-				print('Searching...')
+				grey('Searching...')
 				time.sleep(4)
 				GetMarketItem(item.name)
 	else:
-		input("Press any key to exit ")
+		grey("Press any key to exit ")
+		input()

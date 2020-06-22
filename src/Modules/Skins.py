@@ -1,5 +1,6 @@
 import re
 import time
+from Modules.Colours import *
 
 def skins(wep):
 	data = open("../assets/Data.txt","r",encoding="utf-8").read()
@@ -26,7 +27,7 @@ def skins(wep):
 			if(item<1 or item>(len(item_list))):
 				raise ValueError
 		except ValueError:
-			print("ERROR : INVALID NUMBER")
+			red("ERROR : INVALID NUMBER")
 	item = int(item)-1
 	print("\nSelected Skin -", item_list[item])
 	return(item_list[item])

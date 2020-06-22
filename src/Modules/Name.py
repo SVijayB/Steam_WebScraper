@@ -16,7 +16,7 @@ def name():
 			if(wep<1 or wep>34):
 				raise ValueError
 		except ValueError:
-			print("ERROR : INVALID NUMBER")
+			red("ERROR : INVALID NUMBER")
 	wep = int(wep)-1
 	print("\nSelected Item -",csitems[wep]+"\n")
 
@@ -32,7 +32,7 @@ def name():
 			if(qual<1 or qual>5):
 				raise ValueError
 		except ValueError:
-			print("ERROR : INVALID NUMBER")
+			red("ERROR : INVALID NUMBER")
 	qual = int(qual)-1
 	
 	print("\nSelected Quality -",quality[qual]+"\n")

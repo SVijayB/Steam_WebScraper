@@ -3,6 +3,7 @@ import json
 import time
 from re import sub
 import re
+from Modules.Colours import *
 
 def currency(price):
     print()    
@@ -26,7 +27,7 @@ def currency(price):
             if(choice<1 or choice>31):
                 raise ValueError
         except ValueError:
-            print("ERROR : INVALID NUMBER")
+            red("ERROR : INVALID NUMBER")
             
     values = {}
     for num in range(len(value)):
