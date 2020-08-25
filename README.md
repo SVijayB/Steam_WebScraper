@@ -17,7 +17,7 @@
 [![GitHub repo size](https://img.shields.io/github/repo-size/svijayb/Steam_WebScraper)](https://github.com/SVijayB/Steam_WebScraper)
 
 [![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat)](https://github.com/SVijayB/Steam_WebScraper/blob/master/.github/CODE_OF_CONDUCT.md)
-[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/SVijayB/Steam_WebScraper/blob/master/.github/CONTRIBUTING.md)
+[![Open Source Love svg1](https://img.shields.io/static/v1?label=Open&message=Source%20%E2%9D%A4%EF%B8%8F&color=blueviolet)](https://github.com/SVijayB/Steam_WebScraper/blob/master/.github/CONTRIBUTING.md)
 
 ## Table of Contents
 
