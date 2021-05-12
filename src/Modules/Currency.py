@@ -1,4 +1,4 @@
-import urllib.request
+from urllib.request import Request, urlopen
 import json
 import time
 from re import sub
@@ -8,8 +8,9 @@ from Modules.Colours import *
 
 def currency(price):
     print()
-    url = urllib.request.urlopen("https://api.exchangeratesapi.io/latest")
-    data = json.loads(url.read())
+    req = Request('https://api.ratesapi.io/api/latest', headers={'User-Agent': 'Mozilla/5.0'})
+    url = urlopen(req).read()
+    data = json.loads(url)
     rates = data["rates"]
     rates = str(rates)
 
@@ -40,6 +41,6 @@ def currency(price):
 
     value = float(values[choice])
     price = float(sub(r"[^\d.]", "", price))
-    money = round(price / float(values[27]) * value, 2)
+    money = round(price / float(values[30]) * value, 2)
     result = str(money) + " " + (names[choice])
     return result
